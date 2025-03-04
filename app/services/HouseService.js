@@ -3,6 +3,12 @@ import { House } from "../models/House.js";
 import { api } from "../utils/Axios.js"
 
 class HouseService {
+  async postHouse(newHouseData) {
+    let posting = await api.post('houses', newHouseData)
+    console.log('posting', posting.data);
+
+
+  }
 
   async getHouses() {
     let response = await api.get('houses') // const would make more sense here
@@ -11,6 +17,7 @@ class HouseService {
     AppState.houses = housesAddedToArray
 
   }
+
 
 }
 

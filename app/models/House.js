@@ -7,10 +7,11 @@ export class House {
     this.year = theData.year
     this.price = theData.price
     this.creatorId = theData.id
+    this.creator = theData.creator
   }
 
   get addedHTML() {
-    return `<div class="col-12">
+    return /*html*/ `<div class="col-12">
           <div class="row bg-light shadow car-border" style="border-color: aqua;">
             <div class="col-md-4 ps-0">
               <img src="${this.image}"
@@ -19,15 +20,13 @@ export class House {
             <div class="col-md-8">
               <div class="d-flex flex-column justify-content-between h-100">
                 <div>
-                  <p class="fs-3 mb-1">Home</p>
-                  <small></small>
-                  <div class="d-flex mt-1 justify-content-between align-items-center">
+                  <p class="fs-3 mb-1 fst-italic">Home</p>
+                  <div class="d-flex mt-1 align-items-center">
                     <p class="fs-3">$${this.price.toLocaleString()}</p>
-                    <p class="fs-4">${this.year}</p>
-
                   </div>
+                  <p class="fs-4">${this.year}</p>
                   <p>${this.bedrooms} bed</p>
-                                    <p>${this.bathrooms} bath</p>
+                  <p>${this.bathrooms} bath</p>
                   <p>${this.levels} levels</p>
 
                 </div>
@@ -36,7 +35,14 @@ export class House {
                     Delete House
                   </button>
                 </div>
+              
+                          <div class="d-flex justify-content-between mb-1">
+              <div>
+                <img src="${this.creator.picture}" alt="${this.creator.name}" class="creator-img">
+                <span>${this.creator.name}</span>
               </div>
+            </div>
+          </div>
             </div>
           </div>
         </div>`

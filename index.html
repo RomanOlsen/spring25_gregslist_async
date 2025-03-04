@@ -106,6 +106,9 @@
           </div>
         </div>
       </div>
+      <!--  -->
+
+      <!--  -->
       <div id="carListings" class="row">
         <!-- STUB car card -->
         <!-- <div class="col-12">
@@ -136,10 +139,72 @@
           </div>
         </div> -->
       </div>
-      <div id="houseLists" class="row">
+      <!--  -->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="my-3">Homes</h>
+          </div>
+        </div>
+        <div class="row align-items-center mb-4">
+          <div class="col-md-7">
+            <div id="hFormPholder">
+              <p class="fs-1">Please log in to create a home listing</p>
+            </div>
+            <div id="hForm" class="bg-light shadow rounded p-3 d-none">
 
+              <form onsubmit="app.houseController.listHouse()">
+                <div class="mb-3">
+                  <input name="price" type="number" required maxlength="500" placeholder="Price">
+                </div>
+                <div class="mb-3">
+                  <input name="year" type="number" required min="0" max="2025" placeholder="Year">
+                </div>
+                <div class="mb-3">
+                  <input name="bedrooms" type="number" required maxlength="500" placeholder="bedrooms">
+                </div>
+                <div class="mb-3">
+                  <input name="bathrooms" type="number" required min="0" max="1000000" placeholder="bathrooms">
+                </div>
+                <div class="mb-3">
+                  <input name="levels" type="number" required min="0" max="1000000" placeholder="Levels">
+                </div>
+                <div class="mb-3">
+                  <input id="carImgUrl" name="imgUrl" type="url" required maxlength="500" placeholder="Image URL...">
+                </div>
+
+
+                <!-- <div class="mb-3">
+                  <label for="carDescription">Car Description</label>
+                  <textarea name="description" id="carDescription" class="w-100" placeholder="Description of the car..."
+                    maxlength="500"></textarea> -->
+                <!-- </div> -->
+                <div class="text-end">
+                  <button class="btn btn-outline-danger me-2" type="reset">
+                    Reset Form
+                  </button>
+                  <button class="btn btn-outline-dark" type="submit">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+          <div class="col-md-5">
+            <div class="p-2">
+              <img
+                src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Car keys in a hand" class="car-form-img rounded">
+
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div id="houseLists" class="row">
+
+        </div>
       </div>
-    </div>
   </main>
 
   <footer class="text-bg-dark">

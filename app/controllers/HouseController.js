@@ -1,9 +1,11 @@
 import { AppState } from "../AppState.js";
 import { houseService } from "../services/HouseService.js";
+import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 
 export class HouseController {
   constructor() {
+    AppState.on('identity', this.drawHouseForm)
     this.grabHouses()
   }
 
@@ -26,5 +28,20 @@ export class HouseController {
     houseElems.innerHTML = content
   }
 
+  async listHouse() {
+    event.preventDefault()
+    let input = getFormData(event.target)
+
+    try {
+      await houseService.postHouse(input)
+    } catch (error) {
+      Pop.toast('try again')
+    }
+  }
+
+  drawHouseForm() {
+    document.getElementById('hForm').classList.remove('d-none')
+    document.getElementById('hFormPholder').classList.add('d-none')
+  }
 
 }
