@@ -7,7 +7,8 @@ class HouseService {
   async getHouses() {
     let response = await api.get('houses') // const would make more sense here
     console.log('homes', response.data);
-    let housesAddedToArray = response.data.map(pojo => new House(pojo))
+    let housesAddedToArray = response.data.map(pojo => new House(pojo)) // and here
+    AppState.houses = housesAddedToArray
 
   }
 
