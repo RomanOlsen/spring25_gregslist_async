@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { Identity } from "../Auth/Identity.js";
 import { houseService } from "../services/HouseService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
@@ -45,6 +46,24 @@ export class HouseController {
   drawHouseForm() {
     document.getElementById('hForm').classList.remove('d-none')
     document.getElementById('hFormPholder').classList.add('d-none')
+  }
+
+  async unlistHouse(creatorID, houseID) {
+    if (creatorID == AppState.identity.id) {
+
+      let confirmation = await Pop.confirm()
+      if (!confirmation) {
+        return
+      }
+      try {
+        await houseService.deleteHouse(houseID)
+      } catch (error) {
+        Pop.error(error)
+      }
+
+      return
+    }
+    window.alert('Hey, you cant delete that! You dont own the listing')
   }
 
 }

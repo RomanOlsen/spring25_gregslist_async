@@ -18,6 +18,11 @@ class HouseService {
 
   }
 
+  async deleteHouse(houseID) {
+    let removal = await api.delete(`houses/${houseID}`)
+    let index = AppState.houses.findIndex(house => house.id == houseID)
+    AppState.houses.splice(index, 1)
+  }
 
 }
 

@@ -6,8 +6,9 @@ export class House {
     this.image = theData.imgUrl // not required
     this.year = theData.year
     this.price = theData.price
-    this.creatorId = theData.id
+    this.creatorId = theData.creatorId // creatorId
     this.creator = theData.creator
+    this.id = theData.id // house ID
   }
 
   get addedHTML() {
@@ -31,7 +32,7 @@ export class House {
 
                 </div>
                 <div class="text-end mb-1">
-                  <button class="btn btn-outline-danger">
+                  <button onclick="app.houseController.unlistHouse('${this.creatorId}', '${this.id}')" class="btn btn-outline-danger">
                     Delete House
                   </button>
                 </div>
