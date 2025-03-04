@@ -6,7 +6,7 @@ class HouseService {
   async postHouse(newHouseData) {
     let posting = await api.post('houses', newHouseData)
     console.log('posting', posting.data);
-
+    AppState.houses.push(new House(posting.data))
 
   }
 

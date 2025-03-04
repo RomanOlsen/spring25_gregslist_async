@@ -6,6 +6,7 @@ import { Pop } from "../utils/Pop.js";
 export class HouseController {
   constructor() {
     AppState.on('identity', this.drawHouseForm)
+    AppState.on('houses', this.drawHouses)
     this.grabHouses()
   }
 
@@ -34,6 +35,8 @@ export class HouseController {
 
     try {
       await houseService.postHouse(input)
+      Pop.toast('Added to API')
+
     } catch (error) {
       Pop.toast('try again')
     }
